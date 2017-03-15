@@ -31,6 +31,7 @@ try:
 	    print w
 #	    values += w + " "
 	    connection(portA, w);
+    connection(portA, "end");
 
 except Exception as ex:
    print ex

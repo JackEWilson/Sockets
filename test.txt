@@ -1,1 +1,3 @@
 jack credit 100
+marge debit 50
+marge credit 107
