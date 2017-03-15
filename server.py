@@ -2,10 +2,15 @@ import socket
 import sys
 import threading
 import time
+import signal
 
 mutex = threading.Lock()
-Database = {'jack': 2000, 'aohnny': 1999 }
+Database = {}
 
+def catchSignal(x, f):
+	printToLog();
+	print "made it babe"
+	s.close()
 
 def fx(arg):
     mutex.acquire()
@@ -39,6 +44,7 @@ try:
 	s.bind(('localhost', 5678))
 	s.listen(5)
 	print "Server: waiting to accept()"
+	signal.signal(signal.SIGINT, catchSignal)
 	(conn, addr) = s.accept()
 	print 'Server: accepted with address', addr
 	check = 1
@@ -68,8 +74,6 @@ try:
 					Database[data1] = (int(data3)*-1)    
 		else:
 	    		check = 0
-	printToLog();
-	s.close()
 	
 except Exception as err:
     print err
