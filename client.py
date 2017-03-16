@@ -1,5 +1,6 @@
 import sys
 import socket
+import time
 portA = 5678
 
 def commands():
@@ -31,6 +32,8 @@ try:
 	    print w
 #	    values += w + " "
 	    connection(portA, w);
+	    time.sleep(.1)
+	
     connection(portA, "end");
 
 except Exception as ex:
