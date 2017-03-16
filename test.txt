@@ -1,9 +1,4 @@
-jack credit 100
-marge debit 50
-jack debit 1000
-marge credit 44
-zackary credit 33
-a debit 100000
-a credit 500
-a credit 5
-jack credit 3000
+jack credit $100
+marge debit $50
+zackary credit $33
+a credit $500
