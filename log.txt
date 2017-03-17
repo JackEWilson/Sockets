@@ -1,4 +1,3 @@
-a $0
-jack $0
-marge $0
-zackary $0
+a $16.5
+jack $5011.0
+zackary $1699.5

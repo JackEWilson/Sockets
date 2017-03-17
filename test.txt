@@ -1,8 +1,5 @@
-jack credit $100
+jack credit $100.22
 marge debit $50
-zackary credit $33
-a credit $500
-jack debit $100
-marge credit $50
-zackary debit $33
-a debit $500
+zackary credit $33.99
+a credit $500.55
+a debit $500.22
