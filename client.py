@@ -23,9 +23,9 @@ try:
 	line = line.replace('$', '')
 	words = line.split(' ')
 	for w in words:
-	    print w
+#	    print w
 	    connection(portA, w);
-	    time.sleep(.1)
+	    time.sleep(.15)
     connection(portA, "end");
     f.close()	
 

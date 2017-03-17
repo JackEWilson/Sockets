@@ -26,8 +26,7 @@ def printToLog():
 		f.write('%s $%s\n' % (key, value))
 	f.close()
 
-def handleThreads(conn, i):
-	print "thread: ", i
+def handleThreads(conn):
 	check = 1
 	while check == 1:
 		data1 = conn.recv(80)
@@ -38,36 +37,31 @@ def handleThreads(conn, i):
 			mutex.acquire()
 			if(data2 == "credit"):
 				if data1 in Database.keys():
-					x = int(Database[data1])   
-					x += int(data3)
-					Database[data1] = int(x)
+					x = float(Database[data1])   
+					x += float(data3)
+					Database[data1] = float(x)
 				else:
-					Database[data1] = int(data3)
+					Database[data1] = float(data3)
 			elif(data2 == "debit"):
 				if data1 in Database.keys():
-					x = int(Database[data1])  
-					x -= int(data3)
+					x = float(Database[data1])  
+					x -= float(data3)
 					Database[data1] = x
 				else:
-					Database[data1] = (int(data3)*-1)
+					Database[data1] = (float(data3)*-1)
 			mutex.release()
 		else:
 			check = 0
 			conn.close()
 
-
 try:
 	s = socket.socket( socket.AF_INET, socket.SOCK_STREAM)
 	s.bind(('localhost', int(portA)))
 	s.listen(5)
-#	print "Server: waiting to accept()"
-	i = 0;
 	while True:
 		signal.signal(signal.SIGINT, catchSignal)
 		(conn, addr) = s.accept()
-#		print 'Server: accepted with address', addr
-		t = threading.Thread(target=handleThreads, args=(conn, i))
-		i += 1
+		t = threading.Thread(target=handleThreads, args=(conn,))
 		t.start()
 		threads.append(t)
 

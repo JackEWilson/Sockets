@@ -2,3 +2,7 @@ jack credit $100
 marge debit $50
 zackary credit $33
 a credit $500
+jack debit $100
+marge credit $50
+zackary debit $33
+a debit $500
